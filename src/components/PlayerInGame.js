@@ -1,8 +1,8 @@
 import Button from "./UI/Button";
 
 const PlayerInGame = (props) => {
-  const team2 = props.players.filter((player) => player.team === "teamGreen");
-  const team1 = props.players.filter((player) => player.team === "teamRed");
+  const team2 = props.players.filter((player) => player.team === "green");
+  const team1 = props.players.filter((player) => player.team === "red");
   let regroupedPlayers = [];
 
   for (let i = 0; i <= props.players.length; i++) {
@@ -10,7 +10,7 @@ const PlayerInGame = (props) => {
     regroupedPlayers.push(team1[i]);
   }
   regroupedPlayers = regroupedPlayers.filter((element) => element);
-  // console.log(regroupedPlayers);
+  console.log(regroupedPlayers);
 
   return (
     <>

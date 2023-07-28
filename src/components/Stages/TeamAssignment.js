@@ -2,12 +2,17 @@ import { useEffect } from "react";
 import PlayersList from "../PlayersList";
 import Button from "../UI/Button";
 
+const playersListConvert = (team, teamName) =>
+  team.map((player) => ({ ...player, team: teamName }));
+
 const randomizeTeams = (players) => {
-  // console.log(players);
   const teamSpread = Math.round(players.length / 2);
   const randomizedGroup = players.toSorted(() => Math.random() - 0.5);
-  const team1 = randomizedGroup.splice(teamSpread, teamSpread);
-  const team2 = randomizedGroup;
+  const team1 = playersListConvert(
+    randomizedGroup.splice(teamSpread, teamSpread),
+    "red"
+  );
+  const team2 = playersListConvert(randomizedGroup, "green");
 
   return [team1, team2];
 };
@@ -15,25 +20,16 @@ const randomizeTeams = (players) => {
 const TeamAssignment = (props) => {
   const [team1, team2] = randomizeTeams(props.playersData);
 
-  team1.forEach((element) => {
-    element.team = "teamRed";
-  });
-
-  team2.forEach((element) => {
-    element.team = "teamGreen";
-  });
-
   useEffect(() => {
     props.updateCharacters([...team1, ...team2]);
-    // props.updateAssignment(...team1, team2);
-    // console.log("useeffect ts");
+    props.playersAssignmentUpdateHandler([...team1, ...team2]);
   }, []);
 
   return (
     <>
-      <h1>Team red</h1>
+      <h1>Team green</h1>
       <PlayersList playersData={team1}></PlayersList>
-      <h1>Team blue</h1>
+      <h1>Team red</h1>
       <PlayersList playersData={team2}></PlayersList>
       <Button onClick={props.nextStageHandler}>Next Stage</Button>
     </>

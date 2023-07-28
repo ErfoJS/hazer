@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import PlayersSetup from "./components/Stages/PlayersSetup";
 import Header from "./components/Header";
 import TeamAssignment from "./components/Stages/TeamAssignment";
@@ -31,7 +31,6 @@ function App() {
         : { teamGreen: score.teamGreen + 1, teamRed: score.teamRed }
     );
   };
-  // cartDispatch({ type: "ADD", item: item });
 
   const charactersHandler = (playersData) => {
     const characters = [];
@@ -41,12 +40,6 @@ function App() {
     });
     setCharacters(characters);
   };
-  // console.log(score);
-
-  // // console.log("char");
-  // console.log(characters);
-  // // console.log("pData");
-  // console.log(playersData);
 
   let content = (
     <PlayersSetup
@@ -63,6 +56,7 @@ function App() {
         nextStageHandler={nextStageHandler}
         updateAssignment={playersAssignmentUpdateHandler}
         updateCharacters={charactersHandler}
+        playersAssignmentUpdateHandler={playersAssignmentUpdateHandler}
       />
     );
   }
@@ -77,17 +71,16 @@ function App() {
         score={score}
         scoreHandler={scoreHandler}
         nextStageHandler={nextStageHandler}
+        playersAssignmentUpdateHandler={playersAssignmentUpdateHandler}
       />
     );
   }
   if (stage === 4) {
     content = <Score score={score} nextStageHandler={nextStageHandler} />;
   }
-
   if (stage === 5) {
     content = <Instructions stage={stage} nextStage={nextStageHandler} />;
   }
-
   if (stage === 6) {
     content = (
       <PlayStage
@@ -99,15 +92,12 @@ function App() {
       />
     );
   }
-
   if (stage === 7) {
     content = <Score score={score} nextStageHandler={nextStageHandler} />;
   }
-
   if (stage === 8) {
     content = <Instructions stage={stage} nextStage={nextStageHandler} />;
   }
-
   if (stage === 9) {
     content = (
       <PlayStage
@@ -119,10 +109,11 @@ function App() {
       />
     );
   }
-
   if (stage === 10) {
     content = <Score score={score} nextStageHandler={nextStageHandler} />;
   }
+
+  console.log(score);
 
   return (
     <div>

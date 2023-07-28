@@ -10,14 +10,6 @@ const Turn = (props) => {
       prevTimer > 0 ? prevTimer - 1 : clearTimeout(playersTime)
     );
   }, 1000);
-  // console.log("characters");
-  // console.log(props.characters);
-  // console.log("char length");
-  // console.log(props.characters.length);
-  // console.log(`char type: ${typeof props.characters}`);
-  // console.log(typeof lol);
-  // console.log("chartoplay");
-  // console.log(props.charToPlay);
 
   let buttonChange =
     props.charToPlay === props.characters.length ? (
