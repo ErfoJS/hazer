@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import classes from "./PlayerDataForm.module.css";
+import Button from "./UI/Button";
 
 const PlayerDataForm = (props) => {
   const userNameRef = useRef("");
@@ -16,21 +18,23 @@ const PlayerDataForm = (props) => {
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <div>
-        <label htmlFor="username">Username</label>
-        <input ref={userNameRef} type="text" id="username" />
-      </div>
-      <div>
-        <label htmlFor="character1">Character 1</label>
-        <input ref={character1Ref} type="text" id="character1" />
-      </div>
-      <div>
-        <label htmlFor="character2">Character 2</label>
-        <input ref={character2Ref} type="text" id="character2" />
-      </div>
-      <button>Add player</button>
-    </form>
+    <div className={classes.input}>
+      <form onSubmit={formSubmitHandler}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input ref={userNameRef} type="text" id="username" />
+        </div>
+        <div>
+          <label htmlFor="character1">Character 1</label>
+          <input ref={character1Ref} type="text" id="character1" />
+        </div>
+        <div>
+          <label htmlFor="character2">Character 2</label>
+          <input ref={character2Ref} type="text" id="character2" />
+        </div>
+        <Button>Add player</Button>
+      </form>
+    </div>
   );
 };
 export default PlayerDataForm;
