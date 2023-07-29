@@ -20,7 +20,7 @@ function App() {
     setStage((prevStage) => prevStage + 1);
   };
 
-  const playersAssignmentUpdateHandler = (assignedPlayers) => {
+  const playersDataUpdateHandler = (assignedPlayers) => {
     setPlayersData(assignedPlayers);
   };
 
@@ -54,9 +54,8 @@ function App() {
       <TeamAssignment
         playersData={playersData}
         nextStageHandler={nextStageHandler}
-        updateAssignment={playersAssignmentUpdateHandler}
+        updateAssignment={playersDataUpdateHandler}
         updateCharacters={charactersHandler}
-        playersAssignmentUpdateHandler={playersAssignmentUpdateHandler}
       />
     );
   }
@@ -71,7 +70,7 @@ function App() {
         score={score}
         scoreHandler={scoreHandler}
         nextStageHandler={nextStageHandler}
-        playersAssignmentUpdateHandler={playersAssignmentUpdateHandler}
+        playersAssignmentUpdateHandler={playersDataUpdateHandler}
       />
     );
   }
@@ -112,8 +111,6 @@ function App() {
   if (stage === 10) {
     content = <Score score={score} nextStageHandler={nextStageHandler} />;
   }
-
-  console.log(score);
 
   return (
     <div>

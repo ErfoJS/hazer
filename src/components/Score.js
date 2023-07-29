@@ -5,7 +5,7 @@ const Score = (props) => {
     <div>
       <h3>Team red: {props.score.teamRed}</h3>
       <h3>Team green: {props.score.teamGreen}</h3>
-      <Button onClick={props.nextStageHandler}>Następna Runda</Button>
+      <Button onClick={props.nextStageHandler}>next round</Button>
     </div>
   );
 };

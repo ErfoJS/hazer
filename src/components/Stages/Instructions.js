@@ -39,7 +39,7 @@ const Instructions = (props) => {
   return (
     <>
       {content}
-      <Button onClick={props.nextStage}>Next Stage</Button>
+      <Button onClick={props.nextStage}>start</Button>
     </>
   );
 };

@@ -22,7 +22,7 @@ const TeamAssignment = (props) => {
 
   useEffect(() => {
     props.updateCharacters([...team1, ...team2]);
-    props.playersAssignmentUpdateHandler([...team1, ...team2]);
+    props.updateAssignment([...team1, ...team2]);
   }, []);
 
   return (

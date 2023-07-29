@@ -10,13 +10,11 @@ const PlayerInGame = (props) => {
     regroupedPlayers.push(team1[i]);
   }
   regroupedPlayers = regroupedPlayers.filter((element) => element);
-  console.log(props.playerInGame);
-  console.log(regroupedPlayers);
 
   return (
     <>
       <h2>Player: {regroupedPlayers[props.playerInGame].userName}</h2>
-      <Button onClick={props.nextStep}>Start</Button>
+      <Button onClick={props.nextStep}>go!</Button>
     </>
   );
 };

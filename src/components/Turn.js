@@ -13,9 +13,9 @@ const Turn = (props) => {
 
   let buttonChange =
     props.charToPlay === props.characters.length ? (
-      <Button onClick={props.nextStageHandler}>End round</Button>
+      <Button onClick={props.nextStageHandler}>end round</Button>
     ) : (
-      <Button onClick={props.charToPlayHandler}>Next</Button>
+      <Button onClick={props.charToPlayHandler}>next</Button>
     );
 
   return (
