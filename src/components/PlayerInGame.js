@@ -10,6 +10,7 @@ const PlayerInGame = (props) => {
     regroupedPlayers.push(team1[i]);
   }
   regroupedPlayers = regroupedPlayers.filter((element) => element);
+  console.log(props.playerInGame);
   console.log(regroupedPlayers);
 
   return (

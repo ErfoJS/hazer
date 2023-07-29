@@ -3,7 +3,7 @@ import TimeUp from "./TimeUp";
 import Button from "./UI/Button";
 
 const Turn = (props) => {
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(4);
 
   const playersTime = setTimeout(() => {
     setTimer((prevTimer) =>
@@ -30,6 +30,7 @@ const Turn = (props) => {
           playerInGame={props.playerInGame}
           nextStage={props.nextStageHandler}
           players={props.players}
+          characters={props.characters}
         />
       )}
     </>

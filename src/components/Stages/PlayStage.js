@@ -12,12 +12,14 @@ const PlayStage = (props) => {
     props.scoreHandler(playerInGame);
   };
 
-  const playerInGameHandler = () => {
-    setPlayerInGame((piervousPlayer) => piervousPlayer + 1);
+  const playerInGameHandler = (reset) => {
+    reset === 0
+      ? setPlayerInGame(reset)
+      : setPlayerInGame((prevPlayer) => prevPlayer + 1);
   };
 
   const stageFlowHandler = () => {
-    setStageFlow((piervousStageFlow) => piervousStageFlow + 1);
+    setStageFlow((prevStageFlow) => prevStageFlow + 1);
   };
   let content;
   if (stageFlow % 2) {
