@@ -21,7 +21,6 @@ const TeamAssignment = (props) => {
   const [team1, team2] = randomizeTeams(props.playersData);
 
   useEffect(() => {
-    props.updateCharacters([...team1, ...team2]);
     props.updateAssignment([...team1, ...team2]);
   }, []);
 

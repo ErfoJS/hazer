@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PlayersSetup from "./components/Stages/PlayersSetup";
 import Header from "./components/Header";
 import TeamAssignment from "./components/Stages/TeamAssignment";
@@ -11,6 +11,19 @@ function App() {
   const [stage, setStage] = useState(0);
   const [characters, setCharacters] = useState([]);
   const [score, setScore] = useState({ teamRed: 0, teamGreen: 0 });
+
+  const charactersSetup = () => {
+    const charactersArray = playersData.reduce(
+      (characters, characterInputed) => {
+        characters.push(characterInputed.character1);
+        characters.push(characterInputed.character2);
+        return characters;
+      },
+      []
+    );
+    setCharacters(charactersArray);
+  };
+  useEffect(charactersSetup, [playersData]);
 
   const playerDataFormHandler = (playerData) => {
     setPlayersData((prevData) => [...prevData, playerData]);
@@ -32,15 +45,6 @@ function App() {
     );
   };
 
-  const charactersHandler = (playersData) => {
-    const characters = [];
-    playersData.forEach((element) => {
-      characters.push(element.character1);
-      characters.push(element.character2);
-    });
-    setCharacters(characters);
-  };
-
   let content = (
     <PlayersSetup
       playerDataFormHandler={playerDataFormHandler}
@@ -55,7 +59,7 @@ function App() {
         playersData={playersData}
         nextStageHandler={nextStageHandler}
         updateAssignment={playersDataUpdateHandler}
-        updateCharacters={charactersHandler}
+        // updateCharacters={charactersHandler}
       />
     );
   }
