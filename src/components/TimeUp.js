@@ -16,8 +16,7 @@ const TimeUp = (props) => {
       <div className={classes.backdrop}></div>
       <div className={classes.modal}>
         <h1>Time's up!</h1>
-        {props.playerInGame === props.players.length - 1 &&
-        props.charToPlay === props.characters.length ? (
+        {props.charToPlay === props.characters.length ? (
           <Button onClick={props.nextStage}>End Round</Button>
         ) : (
           <Button onClick={handler}>next player</Button>

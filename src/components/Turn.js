@@ -31,6 +31,7 @@ const Turn = (props) => {
           nextStage={props.nextStageHandler}
           players={props.players}
           characters={props.characters}
+          charToPlay={props.charToPlay}
         />
       )}
     </>
